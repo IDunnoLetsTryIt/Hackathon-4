@@ -20,7 +20,7 @@ function App() {
         `http://musicbrainz.org/ws/2/artist?query=${searchQueryArtist}&fmt=json`
       )
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       setSearchResults(data.artists)
     }
 

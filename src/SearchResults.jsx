@@ -3,15 +3,31 @@ import { useState, useEffect } from 'react'
 export default function SearchResults({ searchResults }) {
 
     return (
-        (searchResults === []
+        (!searchResults
             ?
             <p>Loading</p>
             :
-            searchResults.map( (result, index) => {
+            searchResults.map( (artist, index) => {
                 return (
                     <div key={index}>
-                        <a>{result.name} </a>
-                        <br />
+                        <a>{artist.name}</a>
+                        
+                        <ul>
+                            <li>
+                                aliases: {
+                                artist.aliases 
+                                ?
+                                artist.aliases.map( (alias) => {
+                                return alias.name
+                                })
+                                :
+                                ""
+                                } 
+                            </li>
+
+                            <li>country: {artist.country}</li>
+                            <li>started: {artist['life-span'].begin} finished: {artist['life-span'].end}</li>
+                        </ul>
                     </div>
                 )}
             )
