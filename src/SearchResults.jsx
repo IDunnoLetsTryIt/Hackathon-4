@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function SearchResults({ searchResults }) {
-
     return (
         (!searchResults
             ?
@@ -10,8 +10,7 @@ export default function SearchResults({ searchResults }) {
             searchResults.map( (artist, index) => {
                 return (
                     <div key={index}>
-                        <a>{artist.name}</a>
-                        
+                        <Link to={`/artist/${artist.id}`}>{artist.name}</Link>
                         <ul>
                             <li>
                                 aliases: {
