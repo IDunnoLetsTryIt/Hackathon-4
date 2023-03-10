@@ -7,14 +7,15 @@ export default function Artist() {
   const {id} = useParams()
   const [releases, setReleases] = useState();
 
+
   const loadData = async () => {
     const response = await fetch(
-      `http://musicbrainz.org/ws/2/release?artist=${id}&fmt=json`
+      `http://musicbrainz.org/ws/2/release?artist=${id}&limit=10&fmt=json`
     );
     const data = await response.json();
 
     setReleases(data.releases);
-    
+   
 
   };
 
@@ -64,7 +65,7 @@ return (
         </div>
     </>
     :
-    <Navigation/>
+    <p>no music</p>
 );
 
  
