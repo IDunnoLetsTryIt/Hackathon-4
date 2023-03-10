@@ -26,6 +26,8 @@ function App() {
 
   return (
     <>
+      <Navigation/>
+
       <SearchBar 
       setSearchQueryArtist = { setSearchQueryArtist }
       />
@@ -34,6 +36,8 @@ function App() {
       searchResults  = { searchResults }
       
       />
+
+      <Footer/>
     </>
   )
 }
