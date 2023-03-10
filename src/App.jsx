@@ -8,7 +8,7 @@ import SearchResults from './SearchResults';
 
 function App() {
 
-  const [searchQueryArtist, setSearchQueryArtist] = useState("");
+  const [searchQueryArtist, setSearchQueryArtist] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [resultsPerPage, setResultsPerPage] = useState(10);
   

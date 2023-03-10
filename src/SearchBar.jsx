@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import './SearchBar.scss'
 
 export default function SearchBar({ setSearchQueryArtist, setResultsPerPage }) {
@@ -9,12 +9,22 @@ export default function SearchBar({ setSearchQueryArtist, setResultsPerPage }) {
         setSearchState(e.target.value)
     }
 
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            document.querySelector('.search-button').click()
+        }
+      }
+
+    useEffect(() => {
+        
+    },[])
+
     return (
     <>
     <div className="search">
         <h2>Music Artists Search</h2>
         <div className="search-bar">
-            <input type="text" placeholder="find your artist..." onChange={ handleChange}/>
+            <input type="text" placeholder="find your artist..." onChange={ handleChange} onKeyDown={ handleKeyDown }/>
             <label htmlFor="results_per_page">Results per page</label>
             <select name="results_per_page" id="results_per_page" onChange={ (e) => {
                 setResultsPerPage(e.target.value)
@@ -26,7 +36,7 @@ export default function SearchBar({ setSearchQueryArtist, setResultsPerPage }) {
             <br />
             
             
-            <button onClick={ () => setSearchQueryArtist(searchState) }>Search</button>
+            <button className="search-button" onClick={ () => setSearchQueryArtist(searchState) }>Search</button>
         </div>
         </div>
     </>
