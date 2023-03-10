@@ -20,6 +20,7 @@ export default function Artist() {
   };
 
   useEffect(() => {
+    console.log(releases)
     loadData()
 }, [])
 
@@ -65,7 +66,10 @@ return (
         </div>
     </>
     :
-    <p>no music</p>
+    <>
+    <p>*crickets*</p>
+    </>
+    
 );
 
  

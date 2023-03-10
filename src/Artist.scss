@@ -18,7 +18,7 @@ body{
     font-family:Georgia, 'Times New Roman', Times, serif;
     display:flex;
     flex-direction: column;
-    width:15%;
+    width:300px;
     border: #60656F solid 1px;
     border-radius: 5%;
     padding:2rem;
@@ -37,4 +37,12 @@ body{
      margin: 0 auto;
     }
   }
+  @media screen and (max-width: 3000px) {
+    .releases {
+     display: flex;
+     justify-content: center;
+     margin: 0 auto;
+    }
+  }
+
 
