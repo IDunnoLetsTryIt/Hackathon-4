@@ -18,7 +18,7 @@ export default function SearchResults({ searchResults }) {
                                 artist.aliases 
                                 ?
                                 artist.aliases.map( (alias) => {
-                                return alias.name
+                                    return alias.name
                                 })
                                 :
                                 ""
