@@ -4,7 +4,7 @@ export default function Navigation() {
 
     return (
         <nav className="navigation">
-            {/* <Link>Home</Link> */}
+            <Link to="/">Home</Link>
         </nav>
     )
 }
