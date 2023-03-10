@@ -1,12 +1,40 @@
+import React from 'react';
+import { useState, useEffect } from 'react'
 import './App.css'
-import Homepage from './Homepage'
+import SearchBar from './SearchBar';
+import SearchResults from './SearchResults';
 
 function App() {
 
+  const [searchQueryArtist, setSearchQueryArtist] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  
+  useEffect( () => {
+    if (searchQueryArtist!=[]) {
+    getData()
+    }
+     }, [searchQueryArtist]
+  )
+    async function getData() {
+      const response = await fetch(
+        `http://musicbrainz.org/ws/2/artist?query=${searchQueryArtist}&fmt=json`
+      )
+      const data = await response.json();
+      console.log(data);
+      setSearchResults(data.artists)
+    }
+
   return (
-    <div className="App">
-      <Homepage/>
-    </div>
+    <>
+      <SearchBar 
+      setSearchQueryArtist = { setSearchQueryArtist }
+      />
+     
+      <SearchResults 
+      searchResults  = { searchResults }
+      
+      />
+    </>
   )
 }
 
