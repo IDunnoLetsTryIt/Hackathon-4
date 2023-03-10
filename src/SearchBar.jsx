@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './SearchBar.scss'
 
 export default function SearchBar({ setSearchQueryArtist, setResultsPerPage }) {
 
