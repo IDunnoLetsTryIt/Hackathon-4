@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./Artist.css"
 
 export default function Artist() {
   const id = "b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d";
