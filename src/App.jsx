@@ -1,15 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import React from 'react';
+import { useState, useEffect } from 'react'
 import './App.css'
-import Artist from './Artist'
+import Footer from './Footer';
+import Navigation from './Navigation';
+import SearchBar from './SearchBar';
+import SearchResults from './SearchResults';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [searchQueryArtist, setSearchQueryArtist] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  
+  useEffect( () => {
+    if (searchQueryArtist!=[]) {
+    getData()
+    }
+     }, [searchQueryArtist]
+  )
+    async function getData() {
+      const response = await fetch(
+        `http://musicbrainz.org/ws/2/artist?query=${searchQueryArtist}&fmt=json`
+      )
+      const data = await response.json();
+      console.log(data);
+      setSearchResults(data.artists)
+    }
 
   return (
-    <div className="App">
-      <Artist/>
-    </div>
+    <>
+      <Navigation/>
+
+      <SearchBar 
+      setSearchQueryArtist = { setSearchQueryArtist }
+      />
+     
+      <SearchResults 
+      searchResults  = { searchResults }
+      
+      />
+
+      <Footer/>
+    </>
   )
 }
 
