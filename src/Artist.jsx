@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import "./Artist.css"
+import { useParams } from "react-router";
+import Navigation from "./Navigation";
 
 export default function Artist() {
-  const id = "b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d";
+  const {id} = useParams()
   const [releases, setReleases] = useState();
 
   const loadData = async () => {
@@ -11,36 +13,38 @@ export default function Artist() {
     );
     const data = await response.json();
 
-    // console.log(data)
     setReleases(data.releases);
-    // console.log(releases);
+
   };
-//   loadData()
-console.log(releases)
+
   useEffect(() => {
     loadData()
 }, [])
+
 return (
  
     releases
     ?
-    <div className="releases">
-        {
-      releases.map(release => {
-        return (
-            <ol>
-                <li>{release.title}</li>
-                <li>{release['text-representation'].language}</li>
-                <li>{release.date}</li>
-                <li>{release.country}</li>
-                
-            </ol>
-        )
-    })
-}
-    </div>
+    <>
+        <Navigation/>
+        <div className="releases">
+            {
+                releases.map(release => {
+                    return (
+                        <ol>
+                            <li>{release.title}</li>
+                            <li>{release['text-representation'].language}</li>
+                            <li>{release.date}</li>
+                            <li>{release.country}</li>
+                            
+                        </ol>
+                    )
+                })
+            }
+        </div>
+    </>
     :
-    ''
+    <Navigation/>
 );
 
  
