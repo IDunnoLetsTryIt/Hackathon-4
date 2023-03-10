@@ -9,16 +9,16 @@ export default function SearchResults({ searchResults }) {
             :
             searchResults.map( (artist, index) => {
                 return (
-                    <div key={index} className='artistInfo'>
+                    <div key={index}>
                         <Link to={`/artist/${artist.id}`}>{artist.name}</Link>
                         <ul>
                             {
                             artist.aliases 
                             ?
-                            <li className='artistInfo__alias'>
+                            <li>
                                 {
                                 artist.aliases.map( (alias) => {
-                                    return 'aliases: ' + alias.name
+                                    return 'aliases:' + alias.name
                                 })} 
                             </li>
                             :
@@ -27,14 +27,14 @@ export default function SearchResults({ searchResults }) {
                             {
                             artist.country
                             ?
-                            <li className='artistInfo__country'>country: {artist.country} </li>
+                            <li>country: {artist.country} </li>
                             :
                             ""}               
                             
                             {
                             artist['life-span'].begin
                             ?
-                            <li className='artistInfo__span'>started: {artist['life-span'].begin}</li>
+                            <li>started: {artist['life-span'].begin}</li>
                             :
                             ""}
 
@@ -42,7 +42,7 @@ export default function SearchResults({ searchResults }) {
                             ?
                             <li>ended: {artist['life-span'].end}</li>
                             :
-                            ""}
+                                ""}
                         </ul>
                     </div>
                 )}
