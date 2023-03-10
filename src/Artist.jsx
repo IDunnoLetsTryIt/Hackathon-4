@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./Artist.css"
+import "./Artist.scss"
 import { useParams } from "react-router";
 import Navigation from "./Navigation";
 
@@ -14,6 +14,7 @@ export default function Artist() {
     const data = await response.json();
 
     setReleases(data.releases);
+    
 
   };
 
@@ -31,27 +32,27 @@ return (
             {
                 releases.map(release => {
                     return (
-                        <div className="release">
-                            <h3>{release.title}</h3>
-                            <ul>
+                        <div key={release.id} className="release">
+                            <h3 className="release__title">{release.title}</h3>
+                            <ul className="release__list">
                                 { 
                                     release['text-representation'].language
                                     ?
-                                    <li>Language: {release['text-representation'].language}</li>
+                                    <li className="release__list-item">Language: {release['text-representation'].language}</li>
                                     :
                                     ""
                                 }
                                   { 
                                     release.date
                                     ?
-                                    <li>Release date: {release.date}</li>
+                                    <li className="release__list-item">Release date: {release.date}</li>
                                     :
                                     ""
                                 }
                                   { 
                                     release.country
                                     ?
-                                    <li>Country: {release.country}</li>
+                                    <li className="release__list-item">Country: {release.country}</li>
                                     :
                                     ""
                                   }
