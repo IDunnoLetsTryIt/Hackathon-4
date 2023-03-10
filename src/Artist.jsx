@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./Artist.css"
+import "./Artist.scss"
 import { useParams } from "react-router";
 import Navigation from "./Navigation";
 
@@ -31,13 +31,32 @@ return (
             {
                 releases.map(release => {
                     return (
-                        <ol>
-                            <li>{release.title}</li>
-                            <li>{release['text-representation'].language}</li>
-                            <li>{release.date}</li>
-                            <li>{release.country}</li>
-                            
-                        </ol>
+                        <div className="release">
+                            <h3>{release.title}</h3>
+                            <ul>
+                                { 
+                                    release['text-representation'].language
+                                    ?
+                                    <li>Language: {release['text-representation'].language}</li>
+                                    :
+                                    ""
+                                }
+                                  { 
+                                    release.date
+                                    ?
+                                    <li>Release date: {release.date}</li>
+                                    :
+                                    ""
+                                }
+                                  { 
+                                    release.country
+                                    ?
+                                    <li>Country: {release.country}</li>
+                                    :
+                                    ""
+                                  }
+                            </ul>
+                        </div>
                     )
                 })
             }

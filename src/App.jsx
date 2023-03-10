@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react'
-import './App.css'
+import './App.scss'
 import Footer from './Footer';
 import Navigation from './Navigation';
 import SearchBar from './SearchBar';
@@ -23,7 +23,7 @@ function App() {
         `http://musicbrainz.org/ws/2/artist?query=${searchQueryArtist}&limit=${resultsPerPage}&fmt=json`
       )
       const data = await response.json();
-      // console.log(data);
+
       setSearchResults(data.artists)
     }
 
