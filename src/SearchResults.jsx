@@ -13,20 +13,37 @@ export default function SearchResults({ searchResults }) {
                         <a>{artist.name}</a>
                         
                         <ul>
+                            {
+                            artist.aliases 
+                            ?
                             <li>
-                                aliases: {
-                                artist.aliases 
-                                ?
+                                {
                                 artist.aliases.map( (alias) => {
-                                    return alias.name
-                                })
-                                :
-                                ""
-                                } 
+                                    return 'aliases:' + alias.name
+                                })} 
                             </li>
+                            :
+                            ""}
 
-                            <li>country: {artist.country}</li>
-                            <li>started: {artist['life-span'].begin} finished: {artist['life-span'].end}</li>
+                            {
+                            artist.country
+                            ?
+                            <li>country: {artist.country} </li>
+                            :
+                            ""}               
+                            
+                            {
+                            artist['life-span'].begin
+                            ?
+                            <li>started: {artist['life-span'].begin}</li>
+                            :
+                            ""}
+
+                            {artist['life-span'].end
+                            ?
+                            <li>ended: {artist['life-span'].end}</li>
+                            :
+                                ""}
                         </ul>
                     </div>
                 )}
