@@ -11,10 +11,10 @@ export default function SearchBar({ setSearchQueryArtist, setResultsPerPage }) {
 
     return (
     <>
+    <div className="search">
         <h2>Music Artists Search</h2>
         <div className="search-bar">
             <input type="text" placeholder="find your artist..." onChange={ handleChange}/>
-            <br />
             <label htmlFor="results_per_page">Results per page</label>
             <select name="results_per_page" id="results_per_page" onChange={ (e) => {
                 setResultsPerPage(e.target.value)
@@ -27,6 +27,7 @@ export default function SearchBar({ setSearchQueryArtist, setResultsPerPage }) {
             
             
             <button onClick={ () => setSearchQueryArtist(searchState) }>Search</button>
+        </div>
         </div>
     </>
     )

@@ -36,12 +36,11 @@ function App() {
       setResultsPerPage = { setResultsPerPage }
       resultsPerPage = { resultsPerPage } 
       />
-     
+      
       <SearchResults 
       searchResults  = { searchResults }
-      
       />
-
+      
       <Footer/>
     </>
   )
