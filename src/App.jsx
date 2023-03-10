@@ -1,33 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import React from 'react';
+import { useState, useEffect } from 'react'
 import './App.css'
+import SearchBar from './SearchBar';
+import SearchResults from './SearchResults';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [searchQueryArtist, setSearchQueryArtist] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  
+  useEffect( () => {
+    if (searchQueryArtist!=[]) {
+    getData()
+    }
+     }, [searchQueryArtist]
+  )
+    async function getData() {
+      const response = await fetch(
+        `http://musicbrainz.org/ws/2/artist?query=${searchQueryArtist}&fmt=json`
+      )
+      const data = await response.json();
+      console.log(data);
+      setSearchResults(data.artists)
+    }
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    <>
+      <SearchBar 
+      setSearchQueryArtist = { setSearchQueryArtist }
+      />
+     
+      <SearchResults 
+      searchResults  = { searchResults }
+      
+      />
+    </>
   )
 }
 
