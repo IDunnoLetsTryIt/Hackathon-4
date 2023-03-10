@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState, useEffect } from 'react'
 import './App.css'
+import Footer from './Footer';
+import Navigation from './Navigation';
 import SearchBar from './SearchBar';
 import SearchResults from './SearchResults';
 
@@ -26,6 +28,8 @@ function App() {
 
   return (
     <>
+      <Navigation/>
+
       <SearchBar 
       setSearchQueryArtist = { setSearchQueryArtist }
       />
@@ -34,6 +38,8 @@ function App() {
       searchResults  = { searchResults }
       
       />
+
+      <Footer/>
     </>
   )
 }
