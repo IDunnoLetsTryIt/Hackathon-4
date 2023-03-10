@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './SearchBar.scss'
 
 export default function SearchBar({ setSearchQueryArtist, setResultsPerPage }) {
 
@@ -10,6 +11,7 @@ export default function SearchBar({ setSearchQueryArtist, setResultsPerPage }) {
 
     return (
     <>
+    <div className="search">
         <h2>Music Artists Search</h2>
         <div className="search-bar">
             <input type="text" placeholder="find your artist..." onChange={ handleChange}/>
@@ -26,6 +28,7 @@ export default function SearchBar({ setSearchQueryArtist, setResultsPerPage }) {
             
             
             <button onClick={ () => setSearchQueryArtist(searchState) }>Search</button>
+        </div>
         </div>
     </>
     )

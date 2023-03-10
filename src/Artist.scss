@@ -3,14 +3,14 @@
 }
 body{
     box-sizing: inherit;
-    ;
+    
 }
 
 .releases{
     display: flex;
     flex-wrap: wrap;
     width:100vw;
-    height:100vh;
+    
 }
 .release{
     color: #C49991;
@@ -18,17 +18,16 @@ body{
     font-family:Georgia, 'Times New Roman', Times, serif;
     display:flex;
     flex-direction: column;
-    
     width:15%;
     border: #60656F solid 1px;
     border-radius: 5%;
+    padding:2rem;
     margin: 10px;
     
     
 &__title {
     color: #279AF1
 }
-&-item{
-    color:#279AF1
+
 }
-}
+
