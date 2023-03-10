@@ -12,3 +12,12 @@
 p {
     font-family: 'Tilt Neon', sans-serif;
 }
+
+@media screen and (max-width: 600px) {
+    .footer {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     margin: 0 auto;
+    }
+  }

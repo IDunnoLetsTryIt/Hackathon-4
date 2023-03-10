@@ -16,3 +16,12 @@ a {
 a:hover {
     color: #60656F;
 }
+
+@media screen and (max-width: 600px) {
+    .navigation {
+     display: flex;
+   
+     justify-content: center;
+     margin: 0 auto;
+    }
+  }
