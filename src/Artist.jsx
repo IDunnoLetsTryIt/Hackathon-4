@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./Artist.css"
+import "./Artist.scss"
 import { useParams } from "react-router";
 import Navigation from "./Navigation";
 
