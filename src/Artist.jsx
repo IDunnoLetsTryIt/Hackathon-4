@@ -65,7 +65,7 @@ return (
         </div>
     </>
     :
-    <Navigation/>
+    <p>no music</p>
 );
 
  
