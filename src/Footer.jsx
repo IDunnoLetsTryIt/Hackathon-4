@@ -1,6 +1,10 @@
+import "./Footer.scss"
+
 export default function Footer() {
 
     return(
-        <p>here is footer - we love everyone</p>
+        <footer className="footer">
+            <p className="footer_copyright">2023 &copy; Martin, Charlie, Lukas - We love you anyway</p>
+        </footer>
     )
 }

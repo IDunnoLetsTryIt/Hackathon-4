@@ -10,16 +10,17 @@ function App() {
 
   const [searchQueryArtist, setSearchQueryArtist] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [resultsPerPage, setResultsPerPage] = useState(10);
   
   useEffect( () => {
     if (searchQueryArtist!=[]) {
     getData()
     }
-     }, [searchQueryArtist]
+     }, [searchQueryArtist, resultsPerPage]
   )
     async function getData() {
       const response = await fetch(
-        `http://musicbrainz.org/ws/2/artist?query=${searchQueryArtist}&fmt=json`
+        `http://musicbrainz.org/ws/2/artist?query=${searchQueryArtist}&limit=${resultsPerPage}&fmt=json`
       )
       const data = await response.json();
 
@@ -32,6 +33,8 @@ function App() {
 
       <SearchBar 
       setSearchQueryArtist = { setSearchQueryArtist }
+      setResultsPerPage = { setResultsPerPage }
+      resultsPerPage = { resultsPerPage } 
       />
      
       <SearchResults 
