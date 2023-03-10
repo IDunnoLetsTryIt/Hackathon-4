@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 export default function SearchResults({ searchResults }) {
 
     return (
-        (searchResults === []
+        (!searchResults
             ?
             <p>Loading</p>
             :
